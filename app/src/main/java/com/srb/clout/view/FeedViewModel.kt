@@ -23,6 +23,9 @@ class FeedViewModel : ViewModel() {
             "top" -> _feed.postValue(repo.getTopFeed())
             else -> Log.e("uni","check the hot or top")
         }
+        Log.i("uni",_feed.toString())
+        Log.i("uni",feed.toString())
+        print(_feed)
     }
 
 

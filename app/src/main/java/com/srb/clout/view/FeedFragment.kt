@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.srb.clout.R
 import com.srb.clout.databinding.FragmentFeedBinding
 
 class FeedFragment : Fragment() {
@@ -27,8 +26,11 @@ class FeedFragment : Fragment() {
     ): View {
         _binding = FragmentFeedBinding.inflate(layoutInflater)
 
+        arguments?.getString("feed").apply {
+            this?.let { viewModel.updateFeed(it) }
+        }
 
-
+//        viewModel.updateFeed("hot")
 
         return _binding.root
     }
