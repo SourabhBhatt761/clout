@@ -6,6 +6,7 @@
     tools:context=".view.FeedFragment">
 
     <TextView
+        android:id="@+id/feedText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

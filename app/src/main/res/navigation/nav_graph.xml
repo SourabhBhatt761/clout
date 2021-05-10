@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/hotFragment">
+    app:startDestination="@id/navigation_top">
 
     <fragment
-        android:id="@+id/hotFragment"
+        android:id="@+id/navigation_hot"
         android:name="com.srb.clout.view.FeedFragment"
-        android:label="fragment_feed"
+        android:label="hot"
         tools:layout="@layout/fragment_feed" >
-        <argument android:name="feed" android:defaultValue="null"/>
+        <argument app:argType="string" android:name="feed" android:defaultValue="hot"/>
     </fragment>
 
     <fragment
-        android:id="@+id/topFragment"
+        android:id="@+id/navigation_top"
         android:name="com.srb.clout.view.FeedFragment"
-        android:label="fragment_feed"
+        android:label="top"
         tools:layout="@layout/fragment_feed">
-    <argument android:name="feed" android:defaultValue="null"/>
+        <argument app:argType="string" android:name="feed" android:defaultValue="top"/>
 
     </fragment>
 </navigation>

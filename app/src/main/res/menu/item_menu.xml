@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/top"
+    <item android:id="@+id/navigation_top"
         android:icon="@drawable/ic_top_rated"
-        android:title=" "/>
+        android:title=" top"/>
 
-    <item android:id="@+id/hop"
+    <item android:id="@+id/navigation_hot"
         android:icon="@drawable/ic_fire"
-        android:title=" " />
+        android:title=" hot" />
 </menu>

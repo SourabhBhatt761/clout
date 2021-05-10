@@ -24,12 +24,15 @@ class FeedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFeedBinding.inflate(layoutInflater)
+        _binding = FragmentFeedBinding.inflate(inflater,container,false)
 
         arguments?.getString("feed").apply {
             this?.let { viewModel.updateFeed(it) }
         }
 
+        viewModel.feed.observe(viewLifecycleOwner,{
+            binding.feedText.text = it.toString()
+        })
 //        viewModel.updateFeed("hot")
 
         return _binding.root

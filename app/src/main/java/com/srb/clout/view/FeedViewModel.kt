@@ -5,14 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.srb.clout.data.cloutRepository
+import com.srb.clout.data.CloutRepository
 import com.srb.libimgur.models.Image
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class FeedViewModel : ViewModel() {
 
-    private val repo : cloutRepository by lazy{ cloutRepository() }
+    private val repo : CloutRepository by lazy{ CloutRepository() }
 
     private val _feed = MutableLiveData<List<Image>>()
     val feed : LiveData<List<Image>> = _feed
@@ -23,9 +23,9 @@ class FeedViewModel : ViewModel() {
             "top" -> _feed.postValue(repo.getTopFeed())
             else -> Log.e("uni","check the hot or top")
         }
-        Log.i("uni",_feed.toString())
+        Log.i("uni",_feed.value.toString())
         Log.i("uni",feed.toString())
-        print(_feed)
+
     }
 
 

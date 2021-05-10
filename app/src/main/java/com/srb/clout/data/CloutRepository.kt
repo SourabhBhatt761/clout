@@ -3,7 +3,7 @@ package com.srb.clout.data
 import com.srb.libimgur.models.Image
 import com.srb.libimgur.params.Section
 
-class cloutRepository {
+class CloutRepository {
 
     val api = ImgurClient.api
 

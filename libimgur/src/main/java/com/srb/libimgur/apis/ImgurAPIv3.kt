@@ -12,7 +12,7 @@ import retrofit2.http.Query
 interface ImgurAPIv3 {
 
 
-    @GET("gallery/{section}") //todo: path
+    @GET("gallery/{section}")
     suspend fun getGallery(
         @Path ("section") section : Section,
         @Query ("album_previews") albumPreviews : Boolean? = true
