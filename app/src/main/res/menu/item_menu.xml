@@ -3,9 +3,9 @@
 
     <item android:id="@+id/navigation_top"
         android:icon="@drawable/ic_top_rated"
-        android:title=" top"/>
+        android:title=" "/>
 
     <item android:id="@+id/navigation_hot"
         android:icon="@drawable/ic_fire"
-        android:title=" hot" />
+        android:title=" " />
 </menu>

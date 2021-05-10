@@ -21,5 +21,10 @@ interface ImgurAPIv3 {
     @GET("tags")
     suspend fun getTags(): Response<TagsResponse>
 
+    @GET("gallery/t/{tag}")
+    suspend fun getTagGallery(
+        @Path("tag") tag: String
+    ): Response<TagsResponse>
+
 
 }
