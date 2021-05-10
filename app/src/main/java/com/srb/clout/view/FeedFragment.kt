@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.srb.clout.databinding.FragmentFeedBinding
 
 class FeedFragment : Fragment() {
@@ -13,6 +14,7 @@ class FeedFragment : Fragment() {
     private lateinit var _binding : FragmentFeedBinding
     val binding  get() = _binding
     private lateinit var viewModel: FeedViewModel
+    private val feedAdapter = FeedRecyclerAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +32,12 @@ class FeedFragment : Fragment() {
             this?.let { viewModel.updateFeed(it) }
         }
 
+        binding.feedRv.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = feedAdapter
+        }
         viewModel.feed.observe(viewLifecycleOwner,{
-            binding.feedText.text = it.toString()
+            feedAdapter.submitList(it)
         })
 //        viewModel.updateFeed("hot")
 
