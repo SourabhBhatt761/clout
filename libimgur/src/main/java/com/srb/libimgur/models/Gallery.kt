@@ -6,8 +6,12 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Gallery(
-    val description: String,
+    @Json(name = "description")
+    val description: String?,
+    @Json(name = "id")
     val id: Int?,
+    @Json(name = "name")
     val name: String?,
-    val topPost: TopPost
+    @Json(name = "topPost")
+    val topPost: Image
 )

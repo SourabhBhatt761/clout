@@ -1,4 +1,4 @@
-package com.srb.clout.view.stories
+package com.srb.clout.view.story
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

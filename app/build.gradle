@@ -68,5 +68,6 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
 
     //coil
-    implementation("io.coil-kt:coil:1.2.1")
+    implementation "io.coil-kt:coil:1.2.1"
+    implementation "io.coil-kt:coil-gif:1.2.1"
 }

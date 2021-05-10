@@ -1,21 +1,21 @@
-package com.srb.clout
+package com.srb.clout.view.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import coil.Coil
+import coil.request.ImageRequest
+import com.srb.clout.R
 import com.srb.clout.databinding.ActivityMainBinding
-import com.srb.clout.view.stories.StoriesViewModel
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private lateinit var _binding : ActivityMainBinding
     private val binding get() = _binding
-    private val storiesViewModel by viewModels<StoriesViewModel>()
+    private val storiesViewModel by viewModels<HomeViewModel>()
+    private val storiesAdapter = StoriesRecyclerAdapter()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,18 +24,25 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(_binding.root)
 
-        binding.storiesRv.adapter =
+        binding.storiesRv.adapter = storiesAdapter
+        storiesViewModel.fetchTags()
 
         setUpNav()
 
-        storiesViewModel.fetchTags()
 
         }
 
     override fun onResume() {
         super.onResume()
         storiesViewModel.tags.observe(this){
-
+            it.forEach { tag ->
+                val request = ImageRequest.Builder(this)
+                    .data("https://i.imgur.com/${tag.backgroundHash}.jpg")
+                    .size(resources.getDimensionPixelSize(R.dimen.story_head_image_size))
+                    .build()
+                Coil.imageLoader(this).enqueue(request)
+            }
+            storiesAdapter.submitList(it)
 
         }
     }

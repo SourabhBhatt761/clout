@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_hot"
-        android:name="com.srb.clout.view.FeedFragment"
+        android:name="com.srb.clout.view.feed.FeedFragment"
         android:label="hot"
         tools:layout="@layout/fragment_feed" >
         <argument app:argType="string" android:name="feed" android:defaultValue="hot"/>
@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/navigation_top"
-        android:name="com.srb.clout.view.FeedFragment"
+        android:name="com.srb.clout.view.feed.FeedFragment"
         android:label="top"
         tools:layout="@layout/fragment_feed">
         <argument app:argType="string" android:name="feed" android:defaultValue="top"/>

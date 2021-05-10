@@ -1,4 +1,4 @@
-package com.srb.clout.view
+package com.srb.clout.view.feed
 
 import android.util.Log
 import androidx.lifecycle.LiveData
